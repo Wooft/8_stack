@@ -1,37 +1,37 @@
 class Stack():
     def __init__(self):
         self.list_elements = []
-        self.element = {
-            "id": 0,
-            "Element": None,
-            "href_id": 0
-        }
-
-    def add(self, something):
-        self.element["id"] += 1
-        self.element["Element"] = something
-        self.element["href_id"] = self.element["id"] - 1
-        self.list_elements.append(self.element)
 
     def isEmpty(self): #проверка стека на пустоту. Метод возвращает True или False.
-        pass
+        if len(self.list_elements) == 0:
+            return True
+        else:
+            return False
 
-    def push(self): #добавляет новый элемент на вершину стека. Метод ничего не возвращает.
-        pass
+    def push(self, something): #добавляет новый элемент на вершину стека. Метод ничего не возвращает.
+        self.list_elements.append(something)
 
     def pop(self): #удаляет верхний элемент стека. Стек изменяется. Метод возвращает верхний элемент стека
-        pass
+        pop = self.list_elements.pop(-1)
+        return pop
 
     def peek(self): #возвращает верхний элемент стека, но не удаляет его. Стек не меняется.
         return self.list_elements[-1]
 
     def size(self): #возвращает количество элементов в стеке.
-        pass
+        return len(self.list_elements)
+
+    def allElements(self):
+        return self.list_elements
 
 New_Stack = Stack()
-New_Stack.add('Бэтмен')
-New_Stack.add('Спайдермен')
-New_Stack.add('Олень')
-New_Stack.add('Черепица')
-
+New_Stack.push('Бэтмен')
+New_Stack.push('Спайдермен')
+New_Stack.push('Олень')
+New_Stack.push('Черепица')
 print(New_Stack.peek())
+print(New_Stack.pop())
+print(New_Stack.peek())
+print(New_Stack.size())
+print(New_Stack.isEmpty())
+print(New_Stack.allElements())
