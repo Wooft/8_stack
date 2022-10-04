@@ -8,7 +8,8 @@ class Stack():
 
     def __next__(self): #Метод Next возвращает элементы в обратной последовательности
         self.i += 1
-        if self.i == len(self.list_elements) + 1:
+
+        if self.i > len(self.list_elements):
             raise StopIteration
         return self.list_elements[-self.i]
 
@@ -33,3 +34,6 @@ class Stack():
 
     def allElements(self):
         return self.list_elements
+
+    def clear(self):
+        self.list_elements.clear()
