@@ -1,6 +1,16 @@
 class Stack():
     def __init__(self):
+        self.i = 0
         self.list_elements = []
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        self.i += 1
+        if self.i == len(self.list_elements) + 1:
+            raise StopIteration
+        return self.list_elements[-self.i]
 
     def isEmpty(self): #проверка стека на пустоту. Метод возвращает True или False.
         if len(self.list_elements) == 0:
@@ -25,13 +35,13 @@ class Stack():
         return self.list_elements
 
 New_Stack = Stack()
-New_Stack.push('Бэтмен')
-New_Stack.push('Спайдермен')
-New_Stack.push('Олень')
-New_Stack.push('Черепица')
-print(New_Stack.peek())
+str = '(((([{}]))))'
+for symbols in str:
+    New_Stack.push(symbols)
+
+for elements in New_Stack:
+    print(elements)
+
+print(New_Stack.allElements())
 print(New_Stack.pop())
-print(New_Stack.peek())
-print(New_Stack.size())
-print(New_Stack.isEmpty())
 print(New_Stack.allElements())
